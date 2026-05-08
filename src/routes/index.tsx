@@ -53,6 +53,7 @@ function Index() {
         <Services />
         <HowItWorks />
         <SocialProof />
+        <NonTechnical />
         <Pricing />
         <CTA />
       </main>
