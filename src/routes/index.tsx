@@ -320,6 +320,53 @@ function SocialProof() {
   );
 }
 
+function NonTechnical() {
+  const perks = [
+    { icon: GraduationCap, title: "We source the instructor", desc: "Vetted technical experts ready to teach under your brand." },
+    { icon: Settings, title: "We build the system", desc: "Curriculum, landing page, payments, and operations — all set up for you." },
+    { icon: DollarSign, title: "You own the business", desc: "You keep the brand, the revenue, and the audience. We handle execution." },
+  ];
+  return (
+    <section className="py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-gradient-hero p-10 md:p-16 shadow-glow">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-surface/60 backdrop-blur px-4 py-1.5 text-xs text-brand font-medium mb-6">
+                <Sparkles className="size-3.5" /> No tech background? No problem.
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+                Don't have the technical skills? <span className="text-gradient">We'll help you build the business.</span>
+              </h2>
+              <p className="mt-5 text-lg text-muted-foreground">
+                You don't need to be an engineer to run a profitable training cohort. If you have the vision, drive, or audience — we'll handle the technical instructor sourcing, curriculum, marketing, and operations to launch your paying cohort business.
+              </p>
+              <div className="mt-8">
+                <Button variant="hero" size="lg" asChild>
+                  <a href="#cta">Start Your Cohort Business <ArrowRight /></a>
+                </Button>
+              </div>
+            </div>
+            <div className="grid gap-4">
+              {perks.map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="flex gap-4 rounded-2xl border border-border bg-surface/80 backdrop-blur p-6 shadow-card">
+                  <div className="size-11 shrink-0 rounded-xl bg-gradient-brand grid place-items-center shadow-glow">
+                    <Icon className="size-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">{title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Pricing() {
   const addons = [
     { name: "Ongoing Support", price: "$500–$1,000", per: "per cohort", desc: "Ongoing marketing, operations, and student acquisition support to scale enrollment cohort after cohort." },
