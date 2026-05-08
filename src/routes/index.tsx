@@ -15,6 +15,9 @@ import {
   Cloud,
   Shield,
   Boxes,
+  Sparkles,
+  GraduationCap,
+  DollarSign,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 
