@@ -318,7 +318,7 @@ function SocialProof() {
 
 function Pricing() {
   const addons = [
-    { name: "Growth Support", price: "$500–$1,500", per: "per cohort", desc: "Ongoing marketing and student acquisition support to scale enrollment." },
+    { name: "Ongoing Support", price: "$500–$1,000", per: "per cohort", desc: "Ongoing marketing, operations, and student acquisition support to scale enrollment cohort after cohort." },
     { name: "VA / Operations", price: "Custom", per: "monthly", desc: "Dedicated VA and operations management for student onboarding and support." },
   ];
   return (
