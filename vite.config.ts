@@ -13,7 +13,12 @@ const isStaticExport = process.env.LOVABLE_STATIC_EXPORT === "true";
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
-    ...(isStaticExport ? { static: true } : {}),
+    ...(isStaticExport
+      ? {
+          prerender: { enabled: true },
+          pages: [{ path: "/" }],
+        }
+      : {}),
   },
   vite: {
     ...(isStaticExport ? { base: "./" } : {}),
