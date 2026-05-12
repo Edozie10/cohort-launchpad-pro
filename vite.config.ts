@@ -11,6 +11,7 @@ const isStaticExport = process.env.LOVABLE_STATIC_EXPORT === "true";
 // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 export default defineConfig({
+  cloudflare: isStaticExport ? false : undefined,
   tanstackStart: {
     server: { entry: "server" },
     ...(isStaticExport
