@@ -9,6 +9,8 @@ html = html.replaceAll('href="/./assets/', 'href="./assets/');
 html = html.replaceAll('src="/./assets/', 'src="./assets/');
 html = html.replaceAll('href="/assets/', 'href="./assets/');
 html = html.replaceAll('src="/assets/', 'src="./assets/');
+html = html.replaceAll('"/./assets/', '"./assets/');
+html = html.replaceAll('"/assets/', '"./assets/');
 
 await writeFile(indexPath, html);
 await copyFile(indexPath, resolve(outDir, "404.html"));
