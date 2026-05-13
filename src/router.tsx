@@ -5,7 +5,8 @@ import { routeTree } from "./routeTree.gen";
 export const getRouter = () => {
   const queryClient = new QueryClient();
 
-  const basepath = import.meta.env.VITE_ROUTER_BASEPATH || undefined;
+  const routerBasepath = import.meta.env.VITE_ROUTER_BASEPATH;
+  const basepath = routerBasepath && routerBasepath !== "/" ? routerBasepath : undefined;
 
   const router = createRouter({
     routeTree,
