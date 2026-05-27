@@ -98,9 +98,9 @@ function Hero() {
         </div>
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto text-sm text-muted-foreground">
           {[
-            ["50+", "Cohorts launched"],
-            ["$2M+", "Tuition processed"],
-            ["10k+", "Students enrolled"],
+            ["10+", "Cohorts launched"],
+            ["500k", "Tuition processed"],
+            ["1k", "Students enrolled"],
             ["95%", "Retention rate"],
           ].map(([k, v]) => (
             <div key={v} className="text-center">
