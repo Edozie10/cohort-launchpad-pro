@@ -15,7 +15,7 @@ export function Header() {
           <a href="#pricing" className="hover:text-foreground transition">Pricing</a>
         </nav>
         <Button variant="hero" size="sm" asChild>
-          <a href="#cta">Book a Call</a>
+          <a href="mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp">Book a Call</a>
         </Button>
       </div>
     </header>

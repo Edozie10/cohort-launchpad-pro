@@ -88,7 +88,7 @@ function Hero() {
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button variant="hero" size="xl" asChild>
-            <a href="#cta">
+            <a href="mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp">
               Book a Free Strategy Call <ArrowRight className="ml-1" />
             </a>
           </Button>
@@ -343,7 +343,7 @@ function NonTechnical() {
               </p>
               <div className="mt-8">
                 <Button variant="hero" size="lg" asChild>
-                  <a href="#cta">Start Your Cohort Business <ArrowRight /></a>
+                  <a href="mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp">Start Your Cohort Business <ArrowRight /></a>
                 </Button>
               </div>
             </div>
@@ -436,7 +436,7 @@ function CTA() {
           </p>
           <div className="mt-10">
             <Button variant="hero" size="xl" asChild>
-              <a href="mailto:hello@cohortlaunch.agency?subject=Free%20Consultation">
+              <a href="mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp">
                 Book a Free Consultation <ArrowRight />
               </a>
             </Button>
