@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "bun run build:static",
+  "buildCommand": "VITE_BASE_PATH=/ bun run build:static",
   "installCommand": "bun install",
   "outputDirectory": "dist/client",
   "framework": null,
