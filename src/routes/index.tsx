@@ -384,7 +384,7 @@ function Pricing() {
             <h3 className="text-2xl font-bold">Cohort Launch Package</h3>
             <p className="text-muted-foreground mt-2">Everything you need to launch your first profitable cohort.</p>
             <div className="mt-6 flex items-baseline gap-2">
-              <span className="text-5xl font-display font-bold">$2,000</span>
+              <span className="text-5xl font-display font-bold">$1,999</span>
               <span className="text-muted-foreground">one-time setup</span>
             </div>
             <ul className="mt-8 grid sm:grid-cols-2 gap-3">
