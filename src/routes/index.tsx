@@ -42,13 +42,13 @@ const ENROLL_MAIL =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CloudOps Academy — DevOps & Cloud Engineering Bootcamp (AWS & Azure)" },
+      { title: "ComplxSimple — DevOps & Cloud Engineering Bootcamp (AWS & Azure)" },
       {
         name: "description",
         content:
           "Become a job-ready DevOps & Cloud Engineer. Master AWS, Azure, Docker, Kubernetes, Terraform, Jenkins, GitHub Actions & Ansible with live training, hands-on labs and real-world projects.",
       },
-      { property: "og:title", content: "CloudOps Academy — DevOps & Cloud Bootcamp" },
+      { property: "og:title", content: "ComplxSimple — DevOps & Cloud Bootcamp" },
       {
         property: "og:description",
         content:
@@ -91,16 +91,17 @@ function Hero() {
     "Free AWS Certification Voucher",
   ];
   const stack = [
-    { Icon: Cloud, label: "AWS" },
-    { Icon: Cloud, label: "Azure" },
-    { Icon: Container, label: "Docker" },
-    { Icon: Boxes, label: "Kubernetes" },
-    { Icon: Layers, label: "Terraform" },
-    { Icon: GitBranch, label: "GitHub" },
-    { Icon: Workflow, label: "Jenkins" },
-    { Icon: Terminal, label: "Linux" },
-    { Icon: Activity, label: "Prometheus" },
-    { Icon: Gauge, label: "Grafana" },
+    { label: "AWS", slug: "amazonwebservices", color: "FF9900" },
+    { label: "Azure", slug: "microsoftazure", color: "0078D4" },
+    { label: "Kubernetes", slug: "kubernetes", color: "326CE5" },
+    { label: "Docker", slug: "docker", color: "2496ED" },
+    { label: "Terraform", slug: "terraform", color: "7B42BC" },
+    { label: "Jenkins", slug: "jenkins", color: "D24939" },
+    { label: "GitHub", slug: "github", color: "FFFFFF" },
+    { label: "Linux", slug: "linux", color: "FFFFFF" },
+    { label: "Ansible", slug: "ansible", color: "EE0000" },
+    { label: "Prometheus", slug: "prometheus", color: "E6522C" },
+    { label: "Grafana", slug: "grafana", color: "F46800" },
   ];
 
   return (
@@ -147,21 +148,28 @@ function Hero() {
           </Button>
         </div>
 
-        {/* Stack logos */}
+        {/* Stack logos — moving marquee */}
         <div className="mt-16">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 text-center">
             Tools you'll master
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-            {stack.map(({ Icon, label }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2 rounded-xl border border-border bg-surface/60 backdrop-blur px-4 py-2 text-sm text-foreground/90 hover:border-brand/40 transition"
-              >
-                <Icon className="size-4 text-brand" />
-                {label}
-              </div>
-            ))}
+          <div className="relative overflow-hidden mask-fade-x">
+            <div className="flex gap-4 animate-marquee">
+              {[...stack, ...stack].map((t, i) => (
+                <div
+                  key={`${t.label}-${i}`}
+                  className="shrink-0 flex items-center gap-3 rounded-xl border border-border bg-surface/60 backdrop-blur px-5 py-3 text-sm text-foreground/90 hover:border-brand/40 transition"
+                >
+                  <img
+                    src={`https://cdn.simpleicons.org/${t.slug}/${t.color}`}
+                    alt={t.label}
+                    className="size-6"
+                    loading="lazy"
+                  />
+                  <span className="font-medium">{t.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

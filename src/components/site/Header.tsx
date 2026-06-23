@@ -23,7 +23,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 font-display font-semibold text-lg">
           <span className="size-8 rounded-md bg-gradient-brand shadow-glow" />
-          CloudOps Academy
+          ComplxSimple
         </a>
         <nav className="hidden lg:flex items-center gap-7 text-sm text-muted-foreground">
           {links.map((l) => (
