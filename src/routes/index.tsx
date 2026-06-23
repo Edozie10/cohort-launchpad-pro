@@ -91,16 +91,17 @@ function Hero() {
     "Free AWS Certification Voucher",
   ];
   const stack = [
-    { Icon: Cloud, label: "AWS" },
-    { Icon: Cloud, label: "Azure" },
-    { Icon: Container, label: "Docker" },
-    { Icon: Boxes, label: "Kubernetes" },
-    { Icon: Layers, label: "Terraform" },
-    { Icon: GitBranch, label: "GitHub" },
-    { Icon: Workflow, label: "Jenkins" },
-    { Icon: Terminal, label: "Linux" },
-    { Icon: Activity, label: "Prometheus" },
-    { Icon: Gauge, label: "Grafana" },
+    { label: "AWS", slug: "amazonwebservices", color: "FF9900" },
+    { label: "Azure", slug: "microsoftazure", color: "0078D4" },
+    { label: "Kubernetes", slug: "kubernetes", color: "326CE5" },
+    { label: "Docker", slug: "docker", color: "2496ED" },
+    { label: "Terraform", slug: "terraform", color: "7B42BC" },
+    { label: "Jenkins", slug: "jenkins", color: "D24939" },
+    { label: "GitHub", slug: "github", color: "FFFFFF" },
+    { label: "Linux", slug: "linux", color: "FFFFFF" },
+    { label: "Ansible", slug: "ansible", color: "EE0000" },
+    { label: "Prometheus", slug: "prometheus", color: "E6522C" },
+    { label: "Grafana", slug: "grafana", color: "F46800" },
   ];
 
   return (
