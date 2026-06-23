@@ -2,39 +2,57 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import {
   ArrowRight,
   Check,
-  Rocket,
-  Users,
-  Settings,
-  Target,
-  Megaphone,
-  LineChart,
-  Server,
   Cloud,
-  Shield,
-  Boxes,
+  Server,
+  Container,
+  GitBranch,
+  Layers,
+  Cog,
+  Activity,
+  ShieldCheck,
+  Users,
+  Video,
+  PlayCircle,
+  Briefcase,
   Sparkles,
   GraduationCap,
-  DollarSign,
+  Award,
+  Star,
+  Terminal,
+  Boxes,
+  Gauge,
+  Workflow,
 } from "lucide-react";
-import heroImg from "@/assets/hero.jpg";
+
+const CONSULT_MAIL =
+  "mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp";
+const ENROLL_MAIL =
+  "mailto:jamesnnadi50@gmail.com?subject=Enroll%20in%20DevOps%20%26%20Cloud%20Bootcamp&body=Hello%2C%20I%20would%20like%20to%20enroll%20in%20the%20DevOps%20%26%20Cloud%20Engineering%20Bootcamp.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cohort Launch Agency — Launch Profitable Tech Training Cohorts" },
+      { title: "CloudOps Academy — DevOps & Cloud Engineering Bootcamp (AWS & Azure)" },
       {
         name: "description",
         content:
-          "Done-for-you cohort launch services for Linux, Cloud, DevOps, Cybersecurity & OpenShift experts. We build, market, and run your training programs.",
+          "Become a job-ready DevOps & Cloud Engineer. Master AWS, Azure, Docker, Kubernetes, Terraform, Jenkins, GitHub Actions & Ansible with live training, hands-on labs and real-world projects.",
       },
-      { property: "og:title", content: "Cohort Launch Agency" },
+      { property: "og:title", content: "CloudOps Academy — DevOps & Cloud Bootcamp" },
       {
         property: "og:description",
         content:
-          "Turn your technical skills into a profitable training cohort. Done-for-you setup, marketing, and operations.",
+          "Live instructor-led DevOps & Cloud Engineering Bootcamp. Hands-on AWS, Azure, Docker, Kubernetes, Terraform & CI/CD. Free AWS Solutions Architect Associate voucher included.",
       },
     ],
   }),
@@ -47,267 +65,437 @@ function Index() {
       <Header />
       <main className="pt-16">
         <Hero />
-        <Audience />
-        <Problem />
-        <Solution />
-        <Services />
-        <HowItWorks />
-        <SocialProof />
-        <NonTechnical />
+        <WhyChooseUs />
+        <Curriculum />
+        <Projects />
+        <Certification />
+        <Testimonials />
         <Pricing />
-        <CTA />
+        <FAQ />
+        <FinalCTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
 
+/* -------------------- HERO -------------------- */
+
 function Hero() {
+  const badges = [
+    "Beginner Friendly",
+    "Live Instructor-Led Classes",
+    "Hands-On Projects",
+    "Career Support",
+    "Free AWS Certification Voucher",
+  ];
+  const stack = [
+    { Icon: Cloud, label: "AWS" },
+    { Icon: Cloud, label: "Azure" },
+    { Icon: Container, label: "Docker" },
+    { Icon: Boxes, label: "Kubernetes" },
+    { Icon: Layers, label: "Terraform" },
+    { Icon: GitBranch, label: "GitHub" },
+    { Icon: Workflow, label: "Jenkins" },
+    { Icon: Terminal, label: "Linux" },
+    { Icon: Activity, label: "Prometheus" },
+    { Icon: Gauge, label: "Grafana" },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-gradient-hero">
-      <img
-        src={heroImg}
-        alt=""
-        aria-hidden="true"
-        width={1536}
-        height={1024}
-        className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen"
-      />
-      <div className="relative max-w-6xl mx-auto px-6 py-28 md:py-40 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 backdrop-blur px-4 py-1.5 text-xs text-muted-foreground mb-8">
+      {/* Decorative glow orbs */}
+      <div className="pointer-events-none absolute -top-32 -left-32 size-[480px] rounded-full bg-brand/20 blur-3xl" />
+      <div className="pointer-events-none absolute top-1/2 -right-32 size-[420px] rounded-full bg-purple-500/20 blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
+        <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-surface/60 backdrop-blur px-4 py-1.5 text-xs text-muted-foreground mb-8">
           <span className="size-1.5 rounded-full bg-brand animate-pulse" />
-          Done-for-you cohort launches for technical experts
+          Next cohort enrolling now — Limited seats
         </div>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-          Turn Your Technical Skills Into a{" "}
-          <span className="text-gradient">Profitable Training Cohort</span>
+          Become a Job-Ready{" "}
+          <span className="text-gradient">DevOps & Cloud Engineer</span>
         </h1>
-        <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-          We help Linux, Cloud, DevOps, and Cybersecurity experts launch and fill
-          online training programs — done-for-you.
+        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+          Master Linux, AWS, Azure, Docker, Kubernetes, Terraform, Jenkins,
+          GitHub Actions, Ansible, and Infrastructure as Code through live
+          training, hands-on labs, and real-world projects.
         </p>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
+          {badges.map((b) => (
+            <span
+              key={b}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 backdrop-blur px-3 py-1 text-xs text-foreground/90"
+            >
+              <Check className="size-3.5 text-brand" />
+              {b}
+            </span>
+          ))}
+        </div>
+
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button variant="hero" size="xl" asChild>
-            <a href="mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp">
-              Book a Free Strategy Call <ArrowRight className="ml-1" />
+            <a href={ENROLL_MAIL}>
+              Enroll Now <ArrowRight className="ml-1" />
             </a>
           </Button>
           <Button variant="heroOutline" size="xl" asChild>
-            <a href="#pricing">Launch My Cohort</a>
+            <a href={CONSULT_MAIL}>Schedule a Free Consultation</a>
           </Button>
         </div>
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto text-sm text-muted-foreground">
-          {[
-            ["10+", "Cohorts launched"],
-            ["500k", "Tuition processed"],
-            ["1k", "Students enrolled"],
-            ["95%", "Retention rate"],
-          ].map(([k, v]) => (
-            <div key={v} className="text-center">
-              <div className="text-2xl md:text-3xl font-display font-bold text-foreground">{k}</div>
-              <div className="mt-1">{v}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
-function Audience() {
-  const items = [
-    { icon: Server, label: "Linux Admins" },
-    { icon: Cloud, label: "Cloud Engineers" },
-    { icon: Settings, label: "DevOps" },
-    { icon: Shield, label: "Cybersecurity" },
-    { icon: Boxes, label: "OpenShift / K8s" },
-  ];
-  return (
-    <section className="py-16 border-y border-border bg-surface/30">
-      <div className="max-w-6xl mx-auto px-6">
-        <p className="text-center text-sm uppercase tracking-widest text-muted-foreground mb-8">
-          Built for technical experts in
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
-          {items.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-2 text-muted-foreground">
-              <Icon className="size-5 text-brand" />
-              <span className="font-medium">{label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: string; sub?: string }) {
-  return (
-    <div className="max-w-3xl mx-auto text-center mb-16">
-      <div className="text-xs uppercase tracking-widest text-brand font-semibold mb-3">{eyebrow}</div>
-      <h2 className="text-3xl md:text-5xl font-bold tracking-tight">{title}</h2>
-      {sub && <p className="mt-4 text-lg text-muted-foreground">{sub}</p>}
-    </div>
-  );
-}
-
-function Problem() {
-  const pains = [
-    "You have deep technical expertise but can't find paying students.",
-    "Structuring a curriculum that actually delivers results feels overwhelming.",
-    "Marketing, landing pages, and payments eat your weekends.",
-    "Operations, onboarding, and student support don't scale.",
-  ];
-  return (
-    <section id="problem" className="py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader
-          eyebrow="The Problem"
-          title="Knowledge isn't the bottleneck. Everything else is."
-          sub="Most experts never launch — or burn out trying to do it all alone."
-        />
-        <div className="grid md:grid-cols-2 gap-4">
-          {pains.map((p) => (
-            <div
-              key={p}
-              className="flex gap-3 rounded-xl border border-border bg-surface p-6 shadow-card"
-            >
-              <span className="mt-1 size-2 rounded-full bg-destructive shrink-0" />
-              <p className="text-muted-foreground">{p}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Solution() {
-  const items = [
-    "Cohort setup & curriculum structure",
-    "Landing pages & payment systems",
-    "Marketing & student acquisition",
-    "Instructor & assistant sourcing",
-    "Operations & student onboarding",
-    "Ongoing growth support",
-  ];
-  return (
-    <section className="py-24 md:py-32 bg-surface/30 border-y border-border">
-      <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader
-          eyebrow="The Solution"
-          title="One partner. End-to-end cohort growth."
-          sub="We handle everything needed to launch and run your training cohort from start to finish."
-        />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-          {items.map((i) => (
-            <div key={i} className="flex items-center gap-3 rounded-lg bg-surface-elevated px-5 py-4 border border-border">
-              <Check className="size-5 text-brand shrink-0" />
-              <span className="text-sm">{i}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Services() {
-  const services = [
-    {
-      icon: Rocket,
-      title: "Cohort Setup",
-      desc: "Curriculum structuring, landing pages, payments, tooling, and a launch-ready system tailored to your expertise.",
-    },
-    {
-      icon: Megaphone,
-      title: "Student Acquisition & Marketing",
-      desc: "Targeted lead generation, ad campaigns, content, and funnels that fill your cohorts with qualified students.",
-    },
-    {
-      icon: Users,
-      title: "Operations & Support",
-      desc: "Dedicated VAs and operations management — onboarding, scheduling, communications, and student success.",
-    },
-  ];
-  return (
-    <section id="services" className="py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader
-          eyebrow="What We Do"
-          title="Three pillars. One profitable cohort."
-        />
-        <div className="grid md:grid-cols-3 gap-6">
-          {services.map(({ icon: Icon, title, desc }) => (
-            <div
-              key={title}
-              className="group relative rounded-2xl border border-border bg-surface p-8 shadow-card hover:border-brand/50 transition"
-            >
-              <div className="size-12 rounded-xl bg-gradient-brand grid place-items-center shadow-glow mb-6">
-                <Icon className="size-6 text-primary-foreground" />
+        {/* Stack logos */}
+        <div className="mt-16">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
+            Tools you'll master
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+            {stack.map(({ Icon, label }) => (
+              <div
+                key={label}
+                className="flex items-center gap-2 rounded-xl border border-border bg-surface/60 backdrop-blur px-4 py-2 text-sm text-foreground/90 hover:border-brand/40 transition"
+              >
+                <Icon className="size-4 text-brand" />
+                {label}
               </div>
-              <h3 className="text-xl font-semibold mb-3">{title}</h3>
-              <p className="text-muted-foreground">{desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function HowItWorks() {
-  const steps = [
-    { icon: Target, title: "Strategy Call", desc: "We map your expertise, audience, and offer." },
-    { icon: Settings, title: "Build Your System", desc: "Curriculum, landing page, payments, and operations." },
-    { icon: Megaphone, title: "Attract Students", desc: "Marketing engine fills seats with qualified leads." },
-    { icon: LineChart, title: "Launch & Earn", desc: "You teach. We run the rest. Your cohort goes live." },
-  ];
-  return (
-    <section id="how" className="py-24 md:py-32 bg-surface/30 border-y border-border">
-      <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader eyebrow="How It Works" title="From idea to income in 4 steps" />
-        <div className="grid md:grid-cols-4 gap-6">
-          {steps.map(({ icon: Icon, title, desc }, i) => (
-            <div key={title} className="relative rounded-2xl border border-border bg-surface p-6">
-              <div className="text-xs font-mono text-brand mb-4">STEP {String(i + 1).padStart(2, "0")}</div>
-              <Icon className="size-8 text-brand mb-4" />
-              <h3 className="font-semibold mb-2">{title}</h3>
-              <p className="text-sm text-muted-foreground">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+/* -------------------- WHY -------------------- */
 
-function SocialProof() {
-  const quotes = [
-    {
-      quote: "We launched our first DevOps cohort in 6 weeks and filled all 40 seats. The team handled everything outside of teaching.",
-      name: "Senior DevOps Engineer",
-      role: "First cohort: 40 students",
-    },
-    {
-      quote: "Marketing was the missing piece. Their student acquisition system tripled my enrollment for cohort two.",
-      name: "Cloud Architect",
-      role: "3x enrollment growth",
-    },
-    {
-      quote: "I went from zero infrastructure to a profitable, recurring cybersecurity cohort. Truly done-for-you.",
-      name: "Security Practitioner",
-      role: "Recurring monthly cohorts",
-    },
+function WhyChooseUs() {
+  const items = [
+    { Icon: Server, title: "Hands-On Labs", desc: "Practice on real cloud environments." },
+    { Icon: Briefcase, title: "Real Projects", desc: "Build production-grade infrastructures." },
+    { Icon: GraduationCap, title: "Career Support", desc: "Resume optimization and interview preparation." },
+    { Icon: Users, title: "Live Mentorship", desc: "Learn from experienced engineers." },
+    { Icon: Video, title: "Recorded Sessions", desc: "Access classes anytime." },
+    { Icon: Sparkles, title: "Community Support", desc: "Join an active learning community." },
+    { Icon: PlayCircle, title: "Beginner Friendly", desc: "No previous experience required." },
+    { Icon: Award, title: "Free Certification Voucher", desc: "FREE AWS Solutions Architect Associate exam voucher." },
   ];
   return (
     <section className="py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          eyebrow="Why Choose Us"
+          title="Everything you need to launch your cloud career"
+          sub="A premium learning experience built for results."
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {items.map(({ Icon, title, desc }) => (
+            <div
+              key={title}
+              className="group rounded-2xl border border-border bg-surface/70 backdrop-blur p-6 shadow-card hover:border-brand/50 hover:-translate-y-1 transition"
+            >
+              <div className="size-11 rounded-xl bg-gradient-brand grid place-items-center shadow-glow mb-5">
+                <Icon className="size-5 text-primary-foreground" />
+              </div>
+              <h3 className="font-semibold">{title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------- CURRICULUM -------------------- */
+
+function Curriculum() {
+  const modules = [
+    {
+      Icon: Terminal,
+      title: "Linux Administration",
+      items: [
+        "Linux Fundamentals",
+        "Command Line Interface",
+        "File Permissions",
+        "Users and Groups",
+        "Networking",
+        "Process Management",
+        "Package Management",
+        "Bash Scripting",
+      ],
+    },
+    {
+      Icon: Cloud,
+      title: "AWS Cloud",
+      items: [
+        "IAM",
+        "EC2",
+        "S3",
+        "VPC",
+        "Route Tables",
+        "Internet Gateway",
+        "Security Groups",
+        "Load Balancers",
+        "Auto Scaling",
+        "Route53",
+        "RDS",
+        "CloudWatch",
+        "EFS",
+        "Lambda",
+        "SNS",
+        "SQS",
+        "CloudFormation",
+      ],
+    },
+    {
+      Icon: Cloud,
+      title: "Microsoft Azure",
+      items: [
+        "Azure Virtual Machines",
+        "Azure Storage",
+        "Azure Networking",
+        "Azure Virtual Networks",
+        "Azure Active Directory",
+        "Azure Monitoring",
+        "Azure Security",
+      ],
+    },
+    {
+      Icon: GitBranch,
+      title: "Version Control",
+      items: ["Git", "GitHub", "Branching", "Pull Requests"],
+    },
+    {
+      Icon: Container,
+      title: "Containerization",
+      items: ["Docker Fundamentals", "Docker Images", "Containers", "Docker Compose"],
+    },
+    {
+      Icon: Boxes,
+      title: "Kubernetes",
+      items: [
+        "Pods",
+        "Deployments",
+        "Services",
+        "ConfigMaps",
+        "Secrets",
+        "Persistent Volumes",
+        "Scaling Applications",
+      ],
+    },
+    {
+      Icon: Layers,
+      title: "Infrastructure as Code",
+      items: ["Terraform Basics", "Variables", "Modules", "Provisioning AWS Infrastructure"],
+    },
+    {
+      Icon: Cog,
+      title: "Configuration Management",
+      items: ["Ansible", "Playbooks", "Inventory", "Automation"],
+    },
+    {
+      Icon: Workflow,
+      title: "CI/CD",
+      items: ["Jenkins", "GitHub Actions", "Pipelines", "Deployment Automation"],
+    },
+    {
+      Icon: Activity,
+      title: "Monitoring",
+      items: ["Prometheus", "Grafana", "Alerting"],
+    },
+  ];
+
+  return (
+    <section id="curriculum" className="py-24 md:py-32 bg-surface/30 border-y border-border">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          eyebrow="Program Curriculum"
+          title="10 modules. Zero to job-ready."
+          sub="A structured roadmap covering every essential DevOps & Cloud skill."
+        />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {modules.map((m, i) => (
+            <div
+              key={m.title}
+              className="rounded-2xl border border-border bg-surface/70 backdrop-blur p-6 shadow-card hover:border-brand/50 transition"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="size-10 rounded-lg bg-gradient-brand grid place-items-center shadow-glow">
+                  <m.Icon className="size-5 text-primary-foreground" />
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-brand">MODULE {String(i + 1).padStart(2, "0")}</div>
+                  <h3 className="font-semibold">{m.title}</h3>
+                </div>
+              </div>
+              <ul className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm text-muted-foreground">
+                {m.items.map((it) => (
+                  <li key={it} className="flex items-start gap-1.5">
+                    <Check className="size-3.5 text-brand mt-0.5 shrink-0" />
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------- PROJECTS -------------------- */
+
+function Projects() {
+  const projects = [
+    { Icon: Cloud, title: "Deploy Highly Available Web Applications on AWS", tag: "AWS · HA" },
+    { Icon: Layers, title: "Build Infrastructure with Terraform", tag: "IaC" },
+    { Icon: Workflow, title: "Create CI/CD Pipelines Using Jenkins", tag: "CI/CD" },
+    { Icon: Container, title: "Containerize Applications with Docker", tag: "Containers" },
+    { Icon: Boxes, title: "Deploy Applications on Kubernetes", tag: "K8s" },
+    { Icon: Activity, title: "Configure Monitoring with Prometheus and Grafana", tag: "Monitoring" },
+    { Icon: Cog, title: "Implement Infrastructure Automation with Ansible", tag: "Automation" },
+  ];
+  return (
+    <section id="projects" className="py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          eyebrow="Real-World Projects"
+          title="Build a portfolio recruiters take seriously"
+          sub="Hands-on, production-style projects across the entire DevOps lifecycle."
+        />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {projects.map((p) => (
+            <div
+              key={p.title}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-surface/70 backdrop-blur p-7 shadow-card hover:border-brand/50 hover:-translate-y-1 transition"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition" />
+              <div className="relative">
+                <div className="flex items-center justify-between mb-5">
+                  <div className="size-12 rounded-xl bg-gradient-brand grid place-items-center shadow-glow">
+                    <p.Icon className="size-6 text-primary-foreground" />
+                  </div>
+                  <span className="text-xs font-mono text-brand bg-brand/10 border border-brand/30 px-2 py-1 rounded">
+                    {p.tag}
+                  </span>
+                </div>
+                <h3 className="font-semibold text-lg leading-snug">{p.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------- CERTIFICATION -------------------- */
+
+function Certification() {
+  return (
+    <section id="certifications" className="py-24 md:py-32 bg-surface/30 border-y border-border">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader eyebrow="Social Proof" title="Experts. Cohorts. Real results." />
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-gradient-hero p-10 md:p-16 shadow-glow text-center">
+          <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 size-[400px] rounded-full bg-brand/20 blur-3xl" />
+          <div className="relative">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-surface/60 backdrop-blur px-4 py-1.5 text-xs text-brand font-medium mb-6">
+              <Award className="size-3.5" /> Certification Track
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight max-w-3xl mx-auto">
+              AWS Certified Solutions Architect{" "}
+              <span className="text-gradient">Associate (SAA-C03)</span>
+            </h2>
+            <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
+              Students will receive comprehensive exam preparation and practical labs to pass
+              with confidence.
+            </p>
+
+            <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-brand/40 bg-surface/80 backdrop-blur px-6 py-4 text-left">
+              <span className="text-3xl">🎁</span>
+              <div>
+                <div className="font-semibold">FREE AWS Solutions Architect Associate</div>
+                <div className="text-sm text-muted-foreground">Certification voucher included</div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex justify-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow">
+                <ShieldCheck className="size-4" /> 100% Certification Support
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------- TESTIMONIALS -------------------- */
+
+function Testimonials() {
+  const quotes = [
+    {
+      quote:
+        "I landed my first Cloud Engineer role within 8 weeks of finishing the bootcamp. The hands-on AWS labs were game-changing.",
+      name: "Daniel O.",
+      role: "Cloud Engineer",
+    },
+    {
+      quote:
+        "Transitioned from a non-tech background to a DevOps Engineer. The mentorship and real projects made all the difference.",
+      name: "Aisha M.",
+      role: "DevOps Engineer",
+    },
+    {
+      quote:
+        "The Kubernetes and Terraform modules prepared me for production work on day one. Highly recommended.",
+      name: "Marcus B.",
+      role: "Site Reliability Engineer",
+    },
+    {
+      quote:
+        "Passed my AWS SAA-C03 on the first try thanks to the structured prep and the free voucher.",
+      name: "Priya R.",
+      role: "Cloud Administrator",
+    },
+    {
+      quote:
+        "From scripting Linux servers to deploying CI/CD pipelines — this program covers everything employers want.",
+      name: "Kelechi N.",
+      role: "DevOps Engineer",
+    },
+    {
+      quote:
+        "The live classes plus recordings gave me total flexibility. Career support helped me prep my resume and interviews.",
+      name: "Sara T.",
+      role: "Cloud Engineer",
+    },
+  ];
+  return (
+    <section id="testimonials" className="py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          eyebrow="Student Success"
+          title="Careers launched. Lives changed."
+        />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {quotes.map((q) => (
-            <figure key={q.name} className="rounded-2xl border border-border bg-surface p-8 shadow-card">
-              <blockquote className="text-foreground/90 leading-relaxed">"{q.quote}"</blockquote>
+            <figure
+              key={q.name}
+              className="rounded-2xl border border-border bg-surface/70 backdrop-blur p-7 shadow-card hover:border-brand/40 transition"
+            >
+              <div className="flex gap-0.5 mb-4">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="size-4 fill-brand text-brand" />
+                ))}
+              </div>
+              <blockquote className="text-foreground/90 leading-relaxed">
+                "{q.quote}"
+              </blockquote>
               <figcaption className="mt-6 pt-6 border-t border-border">
                 <div className="font-semibold">{q.name}</div>
                 <div className="text-sm text-muted-foreground">{q.role}</div>
@@ -320,102 +508,64 @@ function SocialProof() {
   );
 }
 
-function NonTechnical() {
-  const perks = [
-    { icon: GraduationCap, title: "We source the instructor", desc: "Vetted technical experts ready to teach under your brand." },
-    { icon: Settings, title: "We build the system", desc: "Curriculum, landing page, payments, and operations — all set up for you." },
-    { icon: DollarSign, title: "You own the business", desc: "You keep the brand, the revenue, and the audience. We handle execution." },
-  ];
-  return (
-    <section className="py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-gradient-hero p-10 md:p-16 shadow-glow">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-surface/60 backdrop-blur px-4 py-1.5 text-xs text-brand font-medium mb-6">
-                <Sparkles className="size-3.5" /> No tech background? No problem.
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-                Don't have the technical skills? <span className="text-gradient">We'll help you build the business.</span>
-              </h2>
-              <p className="mt-5 text-lg text-muted-foreground">
-                You don't need to be an engineer to run a profitable training cohort. If you have the vision, drive, or audience — we'll handle the technical instructor sourcing, curriculum, marketing, and operations to launch your paying cohort business.
-              </p>
-              <div className="mt-8">
-                <Button variant="hero" size="lg" asChild>
-                  <a href="mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp">Start Your Cohort Business <ArrowRight /></a>
-                </Button>
-              </div>
-            </div>
-            <div className="grid gap-4">
-              {perks.map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="flex gap-4 rounded-2xl border border-border bg-surface/80 backdrop-blur p-6 shadow-card">
-                  <div className="size-11 shrink-0 rounded-xl bg-gradient-brand grid place-items-center shadow-glow">
-                    <Icon className="size-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">{title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+/* -------------------- PRICING -------------------- */
 
 function Pricing() {
-  const addons = [
-    { name: "Ongoing Support", price: "$500–$1,000", per: "per cohort", desc: "Ongoing marketing, operations, and student acquisition support to scale enrollment cohort after cohort." },
-    { name: "VA / Operations", price: "Custom", per: "monthly", desc: "Dedicated VA and operations management for student onboarding and support." },
+  const features = [
+    "Live Classes",
+    "Recorded Sessions",
+    "Hands-On Labs",
+    "Real Projects",
+    "Mentorship",
+    "Community Support",
+    "Resume Optimization",
+    "Interview Preparation",
+    "Certificate of Completion",
+    "AWS Certification Preparation",
+    "FREE AWS Solutions Architect Associate Voucher",
   ];
   return (
     <section id="pricing" className="py-24 md:py-32 bg-surface/30 border-y border-border">
-      <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader eyebrow="Pricing" title="Simple, transparent, results-focused" />
-        <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div className="lg:col-span-2 relative rounded-2xl border-2 border-brand bg-surface p-10 shadow-glow">
-            <div className="absolute -top-3 left-10 px-3 py-1 rounded-full bg-gradient-brand text-xs font-semibold text-primary-foreground">
-              Most Popular
+      <div className="max-w-4xl mx-auto px-6">
+        <SectionHeader
+          eyebrow="Pricing"
+          title="Premium DevOps & Cloud Engineering Bootcamp"
+          sub="One investment. A career-changing outcome."
+        />
+        <div className="relative rounded-3xl border-2 border-brand bg-surface/80 backdrop-blur p-10 md:p-12 shadow-glow">
+          <div className="absolute -top-3 left-10 px-3 py-1 rounded-full bg-gradient-brand text-xs font-semibold text-primary-foreground">
+            Limited Seats Available
+          </div>
+          <div className="grid md:grid-cols-2 gap-10 items-start">
+            <div>
+              <h3 className="text-2xl font-bold">Complete Bootcamp</h3>
+              <p className="text-muted-foreground mt-2">
+                Everything included — live training, labs, projects, mentorship, and
+                certification prep.
+              </p>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="text-5xl md:text-6xl font-display font-bold text-gradient">
+                  $1,699
+                </span>
+                <span className="text-muted-foreground">one-time</span>
+              </div>
+              <Button variant="hero" size="xl" className="mt-8 w-full" asChild>
+                <a href={ENROLL_MAIL}>
+                  Enroll Now <ArrowRight className="ml-1" />
+                </a>
+              </Button>
+              <p className="mt-3 text-center text-xs text-muted-foreground">
+                Limited seats available · Secure your spot today
+              </p>
             </div>
-            <h3 className="text-2xl font-bold">Cohort Launch Package</h3>
-            <p className="text-muted-foreground mt-2">Everything you need to launch your first profitable cohort.</p>
-            <div className="mt-6 flex items-baseline gap-2">
-              <span className="text-5xl font-display font-bold">$1,999</span>
-              <span className="text-muted-foreground">one-time setup</span>
-            </div>
-            <ul className="mt-8 grid sm:grid-cols-2 gap-3">
-              {[
-                "Curriculum structuring",
-                "Branded landing page",
-                "Payment system setup",
-                "Launch marketing kit",
-                "Onboarding workflows",
-                "Strategy & positioning",
-              ].map((f) => (
-                <li key={f} className="flex items-center gap-2 text-sm">
-                  <Check className="size-4 text-brand" /> {f}
+            <ul className="grid gap-3">
+              {features.map((f) => (
+                <li key={f} className="flex items-start gap-2 text-sm">
+                  <Check className="size-4 text-brand mt-0.5 shrink-0" />
+                  <span>{f}</span>
                 </li>
               ))}
             </ul>
-            <Button variant="hero" size="lg" className="mt-10 w-full sm:w-auto" asChild>
-              <a href="#cta">Get Started <ArrowRight /></a>
-            </Button>
-          </div>
-          <div className="flex flex-col gap-6">
-            {addons.map((a) => (
-              <div key={a.name} className="rounded-2xl border border-border bg-surface p-6">
-                <h4 className="font-semibold">{a.name}</h4>
-                <div className="mt-2 flex items-baseline gap-2">
-                  <span className="text-2xl font-display font-bold">{a.price}</span>
-                  <span className="text-xs text-muted-foreground">{a.per}</span>
-                </div>
-                <p className="mt-3 text-sm text-muted-foreground">{a.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
@@ -423,26 +573,115 @@ function Pricing() {
   );
 }
 
-function CTA() {
+/* -------------------- FAQ -------------------- */
+
+function FAQ() {
+  const faqs = [
+    {
+      q: "Do I need previous experience?",
+      a: "No. The bootcamp is designed to take you from beginner to job-ready. We start with Linux fundamentals and build up to advanced topics.",
+    },
+    {
+      q: "Is this beginner-friendly?",
+      a: "Yes. Every module is structured for absolute beginners, with live mentorship and step-by-step labs.",
+    },
+    {
+      q: "Are recordings available?",
+      a: "Yes. All live classes are recorded and accessible anytime so you can learn at your own pace.",
+    },
+    {
+      q: "Will I receive a certificate?",
+      a: "Yes. You'll receive an official Certificate of Completion at the end of the program.",
+    },
+    {
+      q: "Will I work on real projects?",
+      a: "Absolutely. You'll build production-grade infrastructures and complete a portfolio of real-world DevOps and Cloud projects.",
+    },
+    {
+      q: "Will I get support for AWS certification?",
+      a: "Yes. You'll receive comprehensive AWS Solutions Architect Associate exam preparation plus a FREE certification voucher.",
+    },
+    {
+      q: "How long is the program?",
+      a: "The bootcamp typically runs for 12–16 weeks with flexible scheduling and lifetime access to all materials.",
+    },
+  ];
   return (
-    <section id="cta" className="py-24 md:py-32">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-hero p-12 md:p-16 text-center shadow-glow">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-            Ready to launch your first or next <span className="text-gradient">cohort?</span>
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Book a free 30-minute consultation. We'll map a launch plan tailored to your expertise — no obligations.
-          </p>
-          <div className="mt-10">
-            <Button variant="hero" size="xl" asChild>
-              <a href="mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp">
-                Book a Free Consultation <ArrowRight />
-              </a>
-            </Button>
+    <section id="faq" className="py-24 md:py-32">
+      <div className="max-w-3xl mx-auto px-6">
+        <SectionHeader eyebrow="FAQ" title="Frequently asked questions" />
+        <Accordion type="single" collapsible className="w-full">
+          {faqs.map((f, i) => (
+            <AccordionItem
+              key={f.q}
+              value={`item-${i}`}
+              className="border border-border bg-surface/60 backdrop-blur rounded-xl px-5 mb-3"
+            >
+              <AccordionTrigger className="text-left font-medium hover:no-underline">
+                {f.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                {f.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------- FINAL CTA -------------------- */
+
+function FinalCTA() {
+  return (
+    <section className="py-24 md:py-32">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-gradient-hero p-12 md:p-20 text-center shadow-glow">
+          <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 size-[500px] rounded-full bg-brand/20 blur-3xl" />
+          <div className="relative">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              Start Your <span className="text-gradient">Cloud Engineering Career</span> Today
+            </h2>
+            <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
+              Master AWS, Azure, Docker, Kubernetes, Terraform, CI/CD, and DevOps
+              with practical projects and expert mentorship.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button variant="hero" size="xl" asChild>
+                <a href={ENROLL_MAIL}>
+                  Enroll Now <ArrowRight className="ml-1" />
+                </a>
+              </Button>
+              <Button variant="heroOutline" size="xl" asChild>
+                <a href={CONSULT_MAIL}>Book a Free Consultation</a>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+/* -------------------- shared -------------------- */
+
+function SectionHeader({
+  eyebrow,
+  title,
+  sub,
+}: {
+  eyebrow: string;
+  title: string;
+  sub?: string;
+}) {
+  return (
+    <div className="max-w-3xl mx-auto text-center mb-14">
+      <div className="text-xs uppercase tracking-widest text-brand font-semibold mb-3">
+        {eyebrow}
+      </div>
+      <h2 className="text-3xl md:text-5xl font-bold tracking-tight">{title}</h2>
+      {sub && <p className="mt-4 text-lg text-muted-foreground">{sub}</p>}
+    </div>
   );
 }
