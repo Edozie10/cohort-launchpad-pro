@@ -7,7 +7,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2 font-display font-semibold text-foreground text-lg">
             <span className="size-7 rounded bg-gradient-brand shadow-glow" />
-            CloudOps Academy
+            ComplxSimple
           </div>
           <p className="mt-3 text-sm text-muted-foreground max-w-sm">
             Premium DevOps & Cloud Engineering Bootcamp specializing in AWS & Microsoft Azure.
@@ -55,7 +55,7 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-border text-xs text-muted-foreground text-center">
-        © {new Date().getFullYear()} CloudOps Academy. All rights reserved.
+        © {new Date().getFullYear()} ComplxSimple. All rights reserved.
       </div>
     </footer>
   );

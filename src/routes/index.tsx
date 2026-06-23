@@ -42,13 +42,13 @@ const ENROLL_MAIL =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CloudOps Academy — DevOps & Cloud Engineering Bootcamp (AWS & Azure)" },
+      { title: "ComplxSimple — DevOps & Cloud Engineering Bootcamp (AWS & Azure)" },
       {
         name: "description",
         content:
           "Become a job-ready DevOps & Cloud Engineer. Master AWS, Azure, Docker, Kubernetes, Terraform, Jenkins, GitHub Actions & Ansible with live training, hands-on labs and real-world projects.",
       },
-      { property: "og:title", content: "CloudOps Academy — DevOps & Cloud Bootcamp" },
+      { property: "og:title", content: "ComplxSimple — DevOps & Cloud Bootcamp" },
       {
         property: "og:description",
         content:
