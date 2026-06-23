@@ -148,21 +148,28 @@ function Hero() {
           </Button>
         </div>
 
-        {/* Stack logos */}
+        {/* Stack logos — moving marquee */}
         <div className="mt-16">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 text-center">
             Tools you'll master
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-            {stack.map(({ Icon, label }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2 rounded-xl border border-border bg-surface/60 backdrop-blur px-4 py-2 text-sm text-foreground/90 hover:border-brand/40 transition"
-              >
-                <Icon className="size-4 text-brand" />
-                {label}
-              </div>
-            ))}
+          <div className="relative overflow-hidden mask-fade-x">
+            <div className="flex gap-4 animate-marquee">
+              {[...stack, ...stack].map((t, i) => (
+                <div
+                  key={`${t.label}-${i}`}
+                  className="shrink-0 flex items-center gap-3 rounded-xl border border-border bg-surface/60 backdrop-blur px-5 py-3 text-sm text-foreground/90 hover:border-brand/40 transition"
+                >
+                  <img
+                    src={`https://cdn.simpleicons.org/${t.slug}/${t.color}`}
+                    alt={t.label}
+                    className="size-6"
+                    loading="lazy"
+                  />
+                  <span className="font-medium">{t.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
