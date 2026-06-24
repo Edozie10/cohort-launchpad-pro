@@ -36,8 +36,7 @@ import {
 
 const CONSULT_MAIL =
   "mailto:info@complxsimple.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp";
-const ENROLL_MAIL =
-  "mailto:info@complxsimple.com?subject=Enroll%20in%20DevOps%20%26%20Cloud%20Bootcamp&body=Hello%2C%20I%20would%20like%20to%20enroll%20in%20the%20DevOps%20%26%20Cloud%20Engineering%20Bootcamp.";
+const ENROLL_MAIL = "https://buy.stripe.com/5kQ7sMcbb8ke3Fv0Wk8g00g";
 
 export const Route = createFileRoute("/")({
   head: () => ({
