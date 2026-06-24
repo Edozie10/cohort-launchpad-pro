@@ -34,7 +34,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <Button variant="hero" size="sm" asChild className="hidden sm:inline-flex">
-            <a href={CONSULT_MAIL}>Enroll Now</a>
+            <a href="https://buy.stripe.com/5kQ7sMcbb8ke3Fv0Wk8g00g">Enroll Now</a>
           </Button>
           <button
             className="lg:hidden p-2 text-foreground"
