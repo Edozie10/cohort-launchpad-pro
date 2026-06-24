@@ -14,7 +14,7 @@ const links = [
 ];
 
 const CONSULT_MAIL =
-  "mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp";
+  "mailto:info@complxsimple.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp";
 
 export function Header() {
   const [open, setOpen] = useState(false);

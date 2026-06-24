@@ -35,9 +35,9 @@ import {
 } from "lucide-react";
 
 const CONSULT_MAIL =
-  "mailto:jamesnnadi50@gmail.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp";
+  "mailto:info@complxsimple.com?subject=Free%20Consultation&body=Hello%20i%20would%20like%20to%20book%20a%20strategy%20call%20for%20my%20bootcamp";
 const ENROLL_MAIL =
-  "mailto:jamesnnadi50@gmail.com?subject=Enroll%20in%20DevOps%20%26%20Cloud%20Bootcamp&body=Hello%2C%20I%20would%20like%20to%20enroll%20in%20the%20DevOps%20%26%20Cloud%20Engineering%20Bootcamp.";
+  "mailto:info@complxsimple.com?subject=Enroll%20in%20DevOps%20%26%20Cloud%20Bootcamp&body=Hello%2C%20I%20would%20like%20to%20enroll%20in%20the%20DevOps%20%26%20Cloud%20Engineering%20Bootcamp.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -113,7 +113,7 @@ function Hero() {
       <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-surface/60 backdrop-blur px-4 py-1.5 text-xs text-muted-foreground mb-8">
           <span className="size-1.5 rounded-full bg-brand animate-pulse" />
-          Next cohort enrolling now — Limited seats
+          Next cohort starts 20th July 2026 — Limited seats
         </div>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
           Become a Job-Ready{" "}
@@ -557,13 +557,16 @@ function Pricing() {
                 </span>
                 <span className="text-muted-foreground">one-time</span>
               </div>
-              <Button variant="hero" size="xl" className="mt-8 w-full" asChild>
+              <p className="mt-2 text-sm text-brand font-medium">
+                Installment payment available — contact admin for details
+              </p>
+              <Button variant="hero" size="xl" className="mt-6 w-full" asChild>
                 <a href={ENROLL_MAIL}>
                   Enroll Now <ArrowRight className="ml-1" />
                 </a>
               </Button>
               <p className="mt-3 text-center text-xs text-muted-foreground">
-                Limited seats available · Secure your spot today
+                Next cohort: 20th July 2026 · Limited seats available
               </p>
             </div>
             <ul className="grid gap-3">
