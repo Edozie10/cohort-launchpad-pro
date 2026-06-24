@@ -18,19 +18,19 @@ export function Footer() {
           <ul className="space-y-2 text-muted-foreground">
             <li className="flex items-center gap-2">
               <Mail className="size-4 text-brand" />
-              <a href="mailto:jamesnnadi50@gmail.com" className="hover:text-foreground">
-                jamesnnadi50@gmail.com
+              <a href="mailto:info@complxsimple.com" className="hover:text-foreground">
+                info@complxsimple.com
               </a>
             </li>
             <li className="flex items-center gap-2">
               <MessageCircle className="size-4 text-brand" />
               <a
-                href="https://wa.me/0000000000"
+                href="https://whatsapp.com/channel/0029VbCRprfFSAsvmQSiqZ1L"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-foreground"
               >
-                WhatsApp
+                WhatsApp Channel
               </a>
             </li>
           </ul>
@@ -39,13 +39,15 @@ export function Footer() {
           <h4 className="font-semibold text-foreground mb-3">Follow</h4>
           <div className="flex gap-3">
             {[
-              { Icon: Linkedin, href: "#" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/in/cassandraacarter/" },
               { Icon: Facebook, href: "#" },
               { Icon: Instagram, href: "#" },
             ].map(({ Icon, href }, i) => (
               <a
                 key={i}
                 href={href}
+                target="_blank"
+                rel="noreferrer"
                 className="size-10 grid place-items-center rounded-lg border border-border bg-surface hover:border-brand/50 transition"
               >
                 <Icon className="size-4 text-muted-foreground" />
